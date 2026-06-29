@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renier R. Trenuela II - Senior Software Engineer Resume</title>
+    <style>
+        /* Modern CSS Reset & Variables */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        :root {
+            --primary-color: #0f172a;    /* Deep Slate */
+            --secondary-color: #1e293b;  /* Medium Slate */
+            --accent-color: #0284c7;     /* Professional Blue */
+            --text-main: #334155;        /* Dark Grey text */
+            --text-light: #64748b;       /* Muted text */
+            --bg-light: #f8fafc;         /* Soft off-white */
+            --border-color: #e2e8f0;     /* Border line color */
+            --skills-bg: #f1f5f9;        /* Badge background */
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            background-color: #f0f2f5;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Container for A4 feel and layout constraint */
+        .resume-container {
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Top Header Banner */
+        .header-section {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 40px;
+            display: table;
+            width: 100%;
+        }
+
+        .header-cell-image {
+            display: table-cell;
+            vertical-align: middle;
+            width: 140px;
+            padding-right: 30px;
+        }
+
+        .header-cell-text {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .profile-img-container {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-color);
+            overflow: hidden;
+            background: #273549;
+            position: relative;
+        }
+
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Fallback SVG Icon if image is missing */
+        .profile-fallback {
+            width: 100%;
+            height: 100%;
+            fill: #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 15px;
+        }
+
+        .header-cell-text h1 {
+            font-size: 28pt;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        .header-cell-text .subtitle {
+            font-size: 13pt;
+            color: var(--accent-color);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .header-cell-text .tagline {
+            font-size: 11pt;
+            color: #94a3b8;
+            max-width: 650px;
+        }
+
+        /* Two Column Main Content Layout via CSS Table for universal compatibility */
+        .main-layout {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        /* Left Sidebar (Contact, Skills & References) */
+        .sidebar-col {
+            display: table-cell;
+            width: 32%;
+            background-color: var(--bg-light);
+            border-right: 1px solid var(--border-color);
+            padding: 35px 25px;
+            vertical-align: top;
+        }
+
+        /* Right Content (Experience & Education) */
+        .content-col {
+            display: table-cell;
+            width: 68%;
+            padding: 35px 40px;
+            vertical-align: top;
+        }
+
+        /* Sidebar Sections */
+        .sidebar-section {
+            margin-bottom: 35px;
+        }
+
+        .sidebar-title {
+            font-size: 11pt;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--primary-color);
+            font-weight: 700;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        .contact-item {
+            margin-bottom: 12px;
+            font-size: 10pt;
+            word-wrap: break-word;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .contact-item a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Reference Styling */
+        .reference-item {
+            margin-bottom: 15px;
+            font-size: 10pt;
+        }
+
+        .reference-item strong {
+            display: block;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .reference-company {
+            font-size: 9pt;
+            color: var(--text-light);
+            margin-bottom: 2px;
+        }
+
+        .reference-email a {
+            font-size: 9pt;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .reference-email a:hover {
+            text-decoration: underline;
+        }
+
+        /* Skill Badges */
+        .skills-group {
+            margin-bottom: 15px;
+        }
+
+        .skills-group-title {
+            font-size: 9.5pt;
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 6px;
+        }
+
+        .badge-container {
+            margin-bottom: 10px;
+        }
+
+        .skill-badge {
+            display: inline-block;
+            background-color: var(--skills-bg);
+            color: var(--secondary-color);
+            font-size: 9pt;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-right: 4px;
+            margin-bottom: 6px;
+            font-weight: 500;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Main Content Sections */
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 14pt;
+            color: var(--primary-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 4px;
+            bottom: 4px;
+            width: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .profile-text {
+            font-size: 11pt;
+            color: var(--text-main);
+            text-align: justify;
+        }
+
+        /* Job Block Timeline / Styling */
+        .job-entry {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .job-header {
+            margin-bottom: 10px;
+        }
+
+        .job-title-row {
+            display: table;
+            width: 100%;
+        }
+
+        .job-title-cell {
+            display: table-cell;
+            font-size: 12pt;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .job-date-cell {
+            display: table-cell;
+            text-align: right;
+            font-size: 10pt;
+            font-weight: 600;
+            color: var(--accent-color);
+            width: 150px;
+        }
+
+        .company-row {
+            font-size: 10.5pt;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-top: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .job-tools {
+            margin-top: 6px;
+            font-size: 9pt;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .job-tools span {
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        .job-description {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 10px;
+        }
+
+        .job-description li {
+            font-size: 10.5pt;
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 6px;
+            color: var(--text-main);
+            text-align: justify;
+        }
+
+        .job-description li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Education Layout */
+        .edu-entry {
+            margin-bottom: 15px;
+        }
+
+        .edu-title {
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .edu-school {
+            font-size: 10.5pt;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-top: 2px;
+        }
+
+        .edu-date {
+            font-size: 10pt;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        /* Footer Info for HR interactivity */
+        .resume-footer {
+            background-color: var(--bg-light);
+            text-align: center;
+            padding: 20px;
+            font-size: 9pt;
+            color: var(--text-light);
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Responsive adjustments for standard screens */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .header-section, .main-layout, .job-title-row {
+                display: block !important;
+                width: 100% !important;
+            }
+            .header-cell-image, .header-cell-text, .sidebar-col, .content-col, .job-title-cell, .job-date-cell {
+                display: block !important;
+                width: 100% !important;
+                text-align: left !important;
+                padding: 0 !important;
+            }
+            .header-cell-image {
+                margin-bottom: 20px;
+            }
+            .sidebar-col {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                padding: 30px 20px;
+            }
+            .content-col {
+                padding: 30px 20px;
+            }
+            .job-date-cell {
+                margin-top: 5px;
+                margin-bottom: 10px;
+            }
+        }
+
+        /* Print optimization styling */
+        @media print {
+            body {
+                background-color: #fff;
+                padding: 0;
+            }
+            .resume-container {
+                box-shadow: none;
+                border: none;
+                max-width: 100%;
+            }
+            .skill-badge {
+                border: 1px solid #cbd5e1 !important;
+                background-color: #f8fafc !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .header-section {
+                background-color: #0f172a !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .sidebar-col {
+                background-color: #f8fafc !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="resume-container">
+
+    <!-- Header Section -->
+    <div class="header-section">
+        <div class="header-cell-image">
+            <div class="profile-img-container">
+                <img src="VISA_RRT.jpg" alt="Renier R. Trenuela II">
+            </div>
+        </div>
+        <div class="header-cell-text">
+            <h1>RENIER R. TRENUELA II</h1>
+            <div class="subtitle">Senior Software Engineer</div>
+            <div class="tagline">Full-Stack & Backend Specialist with a proven track record of architecting robust systems, optimizing workflows, and scaling high-performance enterprise applications.</div>
+        </div>
+    </div>
+
+    <!-- Main Content Layout -->
+    <div class="main-layout">
+        
+        <!-- Left Sidebar Column -->
+        <div class="sidebar-col">
+            
+            <!-- Contact Section -->
+            <div class="sidebar-section">
+                <div class="sidebar-title">Contact</div>
+                <div class="contact-item">
+                    <strong>Location</strong>
+                    Town and Country, Burol 1,<br>Dasmariñas City, Cavite 4115,<br>Philippines
+                </div>
+                <div class="contact-item">
+                    <strong>Phone</strong>
+                    <a href="tel:+639064243594">+63 906 424 3594</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Email</strong>
+                    <a href="mailto:renier.trenuela@gmail.com">renier.trenuela@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Professional Links</strong>
+                    <a href="#" target="_blank">Portfolio</a> &nbsp;|&nbsp; 
+                    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+
+            <!-- Technical Skills Section -->
+            <div class="sidebar-section">
+                <div class="sidebar-title">Technical Skills</div>
+                
+                <div class="skills-group">
+                    <div class="skills-group-title">Backend Development</div>
+                    <div class="badge-container">
+                        <span class="skill-badge">PHP</span>
+                        <span class="skill-badge">Laravel (v4-v11)</span>
+                        <span class="skill-badge">CodeIgniter</span>
+                        <span class="skill-badge">WordPress</span>
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">C#</span>
+                        <span class="skill-badge">ASP.NET</span>
+                    </div>
+                </div>
+
+                <div class="skills-group">
+                    <div class="skills-group-title">Frontend Development</div>
+                    <div class="badge-container">
+                        <span class="skill-badge">JavaScript</span>
+                        <span class="skill-badge">React.js</span>
+                        <span class="skill-badge">Vue.js</span>
+                        <span class="skill-badge">Next.js</span>
+                        <span class="skill-badge">Angular</span>
+                        <span class="skill-badge">jQuery</span>
+                    </div>
+                </div>
+
+                <div class="skills-group">
+                    <div class="skills-group-title">Mobile Development</div>
+                    <div class="badge-container">
+                        <span class="skill-badge">Flutter</span>
+                    </div>
+                </div>
+
+                <div class="skills-group">
+                    <div class="skills-group-title">Databases & Caching</div>
+                    <div class="badge-container">
+                        <span class="skill-badge">MySQL</span>
+                        <span class="skill-badge">PostgreSQL</span>
+                        <span class="skill-badge">PL/SQL</span>
+                        <span class="skill-badge">MSSQL</span>
+                        <span class="skill-badge">NoSQL</span>
+                        <span class="skill-badge">Redis</span>
+                    </div>
+                </div>
+
+                <div class="skills-group">
+                    <div class="skills-group-title">Architecture & APIs</div>
+                    <div class="badge-container">
+                        <span class="skill-badge">RESTful APIs</span>
+                        <span class="skill-badge">Microservices</span>
+                        <span class="skill-badge">API Integration</span>
+                    </div>
+                </div>
+
+                <div class="skills-group">
+                    <div class="skills-group-title">Tools & Infrastructure</div>
+                    <div class="badge-container">
+                        <span class="skill-badge">Docker / Compose</span>
+                        <span class="skill-badge">CI/CD Pipelines</span>
+                        <span class="skill-badge">GitHub Actions</span>
+                        <span class="skill-badge">AWS (S3)</span>
+                        <span class="skill-badge">DigitalOcean</span>
+                        <span class="skill-badge">Laravel Forge</span>
+                        <span class="skill-badge">Git</span>
+                        <span class="skill-badge">Agile / Scrum</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- References Section -->
+            <div class="sidebar-section">
+                <div class="sidebar-title">References</div>
+                
+                <div class="reference-item">
+                    <strong>Ernest Alvarez</strong>
+                    <div class="reference-company">30kft</div>
+                    <div class="reference-email"><a href="mailto:ernesto.iii.work@gmail.com">ernesto.iii.work@gmail.com</a></div>
+                </div>
+
+                <div class="reference-item">
+                    <strong>Abdulaziz Mohammed</strong>
+                    <div class="reference-company">Medilink</div>
+                    <div class="reference-email"><a href="mailto:mohammed.abdulazizt.19@gmail.com">mohammed.abdulazizt.19@gmail.com</a></div>
+                </div>
+
+                <div class="reference-item">
+                    <strong>Jerome Sarmiento</strong>
+                    <div class="reference-company">ObjectBright Inc.</div>
+                    <div class="reference-email"><a href="mailto:jeromesarmiento.android@gmail.com">jeromesarmiento.android@gmail.com</a></div>
+                </div>
+
+                <div class="reference-item">
+                    <strong>John Reinier Saturno Voluntad</strong>
+                    <div class="reference-company">ObjectBright Inc.</div>
+                    <div class="reference-email"><a href="mailto:Johnreiniervoluntad@gmail.com">Johnreiniervoluntad@gmail.com</a></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Right Content Column -->
+        <div class="content-col">
+            
+            <!-- Professional Summary -->
+            <div class="section">
+                <div class="section-title">Profile</div>
+                <p class="profile-text">
+                    Results-driven Senior Software Engineer with 10+ years of comprehensive experience in full-stack and backend development. Proven track record of designing, optimizing, and maintaining high-performance web and mobile applications. Adept at leading cross-functional teams, mentoring junior developers, and delivering highly scalable enterprise solutions for global clients. Passionate about clean code architecture, system efficiency, and innovative problem-solving.
+                </p>
+            </div>
+
+            <!-- Professional Experience -->
+            <div class="section">
+                <div class="section-title">Work Experience</div>
+
+                <!-- Job 1 -->
+                <div class="job-entry">
+                    <div class="job-header">
+                        <div class="job-title-row">
+                            <div class="job-title-cell">Senior PHP Developer</div>
+                            <div class="job-date-cell">Mar 2024 – Present</div>
+                        </div>
+                        <div class="company-row">30KFT &bull; Wollongong, Australia (Fully Remote)</div>
+                        <div class="job-tools"><span>Key Stack:</span> PHP, Laravel 11, CodeIgniter 3, Angular, JavaScript, MySQL, Redis, Docker, AWS S3, DigitalOcean Spaces, CI/CD</div>
+                    </div>
+                    <ul class="job-description">
+                        <li>Spearheaded the engineering and development of a scalable enterprise logistics management system using CodeIgniter 3 for legacy core support and Laravel 11 for modern high-throughput APIs, greatly improving operational velocity and platform stability.</li>
+                        <li>Optimized backend databases using strategic query indexing, optimization, and Redis caching layers, significantly reducing application latency for high-volume logistics transactions.</li>
+                        <li>Implemented standard containerized microenvironments via Docker Compose, guaranteeing uniform deployment transitions and eliminating environmental discrepancies across distributed global developer teams.</li>
+                        <li>Architected secure third-party object cloud storage workflows (AWS S3, DigitalOcean Spaces) to optimize asset storage pipelines, establishing maximum data availability and fault-tolerant redundancy.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="job-entry">
+                    <div class="job-header">
+                        <div class="job-title-row">
+                            <div class="job-title-cell">Laravel Backend Developer</div>
+                            <div class="job-date-cell">Jan 2023 – Jan 2024</div>
+                        </div>
+                        <div class="company-row">CreateApe Inc. &bull; Irvine, CA, USA (Remote / Project-Based)</div>
+                        <div class="job-tools"><span>Key Stack:</span> PHP, Laravel, React, Vue.js, JavaScript, MySQL, Redis, GitHub Actions, Laravel Forge, Stripe, Firebase, AWS, CI/CD</div>
+                    </div>
+                    <ul class="job-description">
+                        <li>Developed and engineered highly optimized, decoupled Laravel RESTful APIs to feed client-facing single-page applications powered by Vue.js and React frontends.</li>
+                        <li>Built and maintained enterprise-grade security protocols, developing bulletproof authentication and granular authorization layers utilizing Laravel Passport and Sanctum.</li>
+                        <li>Designed highly scalable MySQL schemas, refactored problematic relational queries, and integrated Redis memory caches to supercharge overall application response times by up to 40%.</li>
+                        <li>Automated delivery lifecycles by structuring end-to-end continuous integration and deployment pipelines using GitHub Actions combined with Laravel Forge, completely streamlining code ship schedules for staging and production tiers.</li>
+                        <li>Integrated multifaceted core utilities including Stripe API for billing/payments, Firebase for reliable storage systems, and various ecosystem endpoints to anchor interoperable app behaviors.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="job-entry">
+                    <div class="job-header">
+                        <div class="job-title-row">
+                            <div class="job-title-cell">Senior Software Engineer</div>
+                            <div class="job-date-cell">May 2016 – Dec 2022</div>
+                        </div>
+                        <div class="company-row">Object Bright Inc. &bull; Muntinlupa City, Philippines (Hybrid)</div>
+                        <div class="job-tools"><span>Key Stack:</span> PHP, Laravel, WordPress, Python, Flutter, Angular, JavaScript, PostgreSQL, PL/SQL, MySQL, Docker, VPS, Linux Shell Scripting</div>
+                    </div>
+                    <ul class="job-description">
+                        <li>Directed the end-to-end technical lifecycle of enterprise-grade software products using Laravel, Angular, and optimized relational databases, improving client-side operational uptime and user sentiment.</li>
+                        <li>Architected decoupled modular microservices that enhanced systemic elasticity, allowing concurrent development across various internal engineering verticals.</li>
+                        <li>Leveraged asynchronous architecture by setting up Laravel Queue systems backed by Redis to manage high-volume background data batches and long-running operations.</li>
+                        <li>Developed server-side cron automation workflows and Linux shell scripts to replace manual operational protocols, recovering over 15 hours per week in developer and management bandwidth.</li>
+                        <li>Served as Scrum Master/Technical Lead within Agile loops; handled sprint orchestrations, organized rigorous code review standards, and mentored junior team members to upgrade organization-wide code quality.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 4 -->
+                <div class="job-entry">
+                    <div class="job-header">
+                        <div class="job-title-row">
+                            <div class="job-title-cell">Junior Software Engineer</div>
+                            <div class="job-date-cell">May 2015 – May 2016</div>
+                        </div>
+                        <div class="company-row">Medilink Healthcare &bull; Makati City, Philippines (On-Site)</div>
+                        <div class="job-tools"><span>Key Stack:</span> PHP, ASP.NET, C#, MySQL, MSSQL Server</div>
+                    </div>
+                    <ul class="job-description">
+                        <li>Contributed to the core design, programming, optimization, and testing phases of mission-critical healthcare informatics and clinical administration platforms.</li>
+                        <li>Collaborated closely under senior engineering mentorship to build highly structured, HIPAA-compliant medical data management services.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Education -->
+            <div class="section">
+                <div class="section-title">Education</div>
+                <div class="edu-entry">
+                    <div class="edu-title">Bachelor of Science in Information Technology</div>
+                    <div class="edu-school">De La Salle University – Dasmariñas City, Philippines</div>
+                    <div class="edu-date">Jun 2010 – Mar 2014</div>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+
+    <!-- Footer -->
+    <div class="resume-footer">
+        Renier R. Trenuela II &bull; Senior Software Engineer Resume &bull; Generated for Recruitment Teams
+    </div>
+
+</div>
+
+</body>
+</html>
