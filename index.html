@@ -36,7 +36,6 @@
             margin: 0 auto;
             background: #ffffff;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            border-radius: 12px;
             overflow: hidden;
             border: 1px solid var(--border-color);
         }
@@ -434,6 +433,30 @@
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
+            /* Keep each job block on one page; move to next page if it won't fit */
+            .job-entry {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                margin-bottom: 16px;
+                padding-top: 5px;
+            }
+            .section > .job-entry:first-of-type {
+                padding-top: 0;
+            }
+            .job-header {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            /* Keep each skills group on one page; move to next page if it won't fit */
+            .skills-group {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                margin-bottom: 12px;
+                padding-top: 25px;
+            }
+            .sidebar-section > .skills-group:first-of-type {
+                padding-top: 0;
+            }
         }
     </style>
 </head>
@@ -688,12 +711,6 @@
         </div>
         
     </div>
-
-    <!-- Footer -->
-    <div class="resume-footer">
-        Renier R. Trenuela II &bull; Senior Software Engineer Resume &bull; Generated for Recruitment Teams
-    </div>
-
 </div>
 
 </body>
